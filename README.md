@@ -16,4 +16,4 @@ Comes with three themes (Dark, PS2, HD)
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_indexthemecheck html (2)" src="https://github.com/user-attachments/assets/28984dc3-2635-40e8-bbf3-25e303de79ba" />
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_indexthemecheck html (3)" src="https://github.com/user-attachments/assets/67dcf72f-6ea4-4e01-830d-935bc9430721" />
 
-Thank you https://finalfantasy.fandom.com/wiki/Final_Fantasy_Wiki for all the item and mix information
+Huge tahnks to https://finalfantasy.fandom.com/wiki/Final_Fantasy_Wiki for all the item and mix information
