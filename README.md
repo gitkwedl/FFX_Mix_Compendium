@@ -10,3 +10,5 @@ Item Sources: Find exact steal/bribe/drop etc. info for any item.
 Click any item or mix to jump to its info page. Hyperlinked between items and mix results.
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_itemobtina_index html (2)" src="https://github.com/user-attachments/assets/2b3a266d-e84b-425d-be71-32f520596930" />
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_itemobtina_index html (5)" src="https://github.com/user-attachments/assets/270974b3-d101-4756-99e1-3132f67e08bd" />
+
+Thank you https://finalfantasy.fandom.com/wiki/Final_Fantasy_Wiki for all the item and mix information
