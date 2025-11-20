@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final Fantasy X Mix Compendium - V20</title>
+  <title>Final Fantasy X Mix Compendium</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#212121">
@@ -278,6 +278,60 @@
     .controls button:hover {
       background-color: var(--hover);
       color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        /* Stack vertical */
+        align-items: stretch;
+        /* Full width */
+        padding: 10px;
+        gap: 10px;
+        height: auto;
+      }
+
+      .header-left {
+        justify-content: space-between;
+        /* Spread Title and Theme Btn */
+        width: 100%;
+      }
+
+      .controls {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .controls button {
+        flex: 1;
+        /* Buttons share width equally */
+        padding: 10px 0;
+        /* Taller touch target */
+        margin: 0;
+        font-size: 0.8rem;
+        /* Slightly smaller font */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Adjust main padding for mobile */
+      main {
+        padding: 1rem;
+      }
+
+      /* Adjust Modals for mobile */
+      .modal-content {
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      /* Fix sticky headers in mobile inputs */
+      .search-wrapper {
+        top: -1px;
+      }
     }
 
     /* === MAIN === */
