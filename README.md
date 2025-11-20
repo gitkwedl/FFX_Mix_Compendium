@@ -1,7 +1,7 @@
 # FFX_Mix_Compendium
 This is a companion app for Final Fantasy X item mixing. It breaks down the mixing process into three tabs:
 
-Mixer: Input two items; get an instant, filtered result.
+Mixer: Input two items to get an instant, filtered result.
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_itemobtina_index html (1)" src="https://github.com/user-attachments/assets/f9e65002-9931-4c3a-a3e2-52ec94c43c89" />
 Mix Result Index: Browse all 64 unique Overdrives and their full recipe combinations.
 <img width="1667" height="992" alt="_C__Users_Kevin_Documents_ffx%20mix%20list_itemobtina_index html (3)" src="https://github.com/user-attachments/assets/27fd0f2a-c23a-4e60-977f-cfca936b015a" />
