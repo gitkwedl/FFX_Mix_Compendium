@@ -11393,7 +11393,13 @@
         grid.appendChild(el);
       });
     }
-    document.getElementById('search-wiki').addEventListener('input', (e) => renderWiki(CLEAN_DATA.filter(m => m.name.toLowerCase().includes(e.target.value.toLowerCase()))));
+    document.getElementById('search-wiki').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      renderWiki(CLEAN_DATA.filter(m =>
+        m.name.toLowerCase().includes(term) ||
+        m.description.toLowerCase().includes(term)
+      ));
+    });
 
     function renderItems(items) {
       const grid = document.getElementById('item-grid');
