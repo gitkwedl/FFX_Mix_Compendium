@@ -700,6 +700,47 @@
       border-color: #f97316;
       color: #fdba74;
     }
+
+    /* === CSS TOOLTIP === */
+    .tooltip-container {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted var(--text-muted);
+    }
+
+    .tooltip-container:hover::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #000;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      white-space: pre;
+      /* Allows newlines in the text */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      z-index: 100;
+      pointer-events: none;
+      min-width: 140px;
+      text-align: left;
+    }
+
+    /* Little triangle arrow */
+    .tooltip-container:hover::before {
+      content: '';
+      position: absolute;
+      bottom: 115%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+      z-index: 100;
+    }
   </style>
 </head>
 
@@ -9380,7 +9421,7 @@
           "Bikanel - Cactuar hunt (win minigame 0-2 times)"
         ]
       },
-      "Hi-Potion": {
+      "High-Potion": {
         "steal": [
           "Bat Eye",
           "Black Element",
@@ -9491,9 +9532,21 @@
           "Mech Gunner"
         ],
         "bribe": [
-          "Mech Defender",
-          "Mech Hunter",
-          "Mech Gunner"
+          {
+            "enemy": "Mech Defender",
+            "amount": 99,
+            "cost": 217500
+          },
+          {
+            "enemy": "Mech Gunner",
+            "amount": 40,
+            "cost": 70000
+          },
+          {
+            "enemy": "Mech Hunter",
+            "amount": 60,
+            "cost": 137500
+          }
         ],
         "find": [
           "Bevelle",
@@ -9524,7 +9577,11 @@
           "Tros"
         ],
         "bribe": [
-          "Mech Guard"
+          {
+            "enemy": "Mech Guard",
+            "amount": 50,
+            "cost": 32
+          }
         ],
         "shop": [
           "Rin's Travel Agency",
@@ -9612,8 +9669,16 @@
           "Mech Scouter (rare)"
         ],
         "bribe": [
-          "Dual Horn (Home)",
-          "Grendel (190,000 gil x60)"
+          {
+            "enemy": "Dual Horn B (Home)",
+            "amount": 25,
+            "cost": 94875
+          },
+          {
+            "enemy": "Grendel",
+            "amount": 60,
+            "cost": 237500
+          }
         ],
         "find": [
           "Mushroom Rock Road: Ridge",
@@ -9712,7 +9777,11 @@
           "Ornitholestes"
         ],
         "bribe": [
-          "Zaurus (157,000 gil x10)"
+          {
+            "enemy": "Zaurus",
+            "amount": 10,
+            "cost": 19625
+          }
         ],
         "prize": [
           "Blitzball - Tournament Prize (top scorer)"
@@ -9765,8 +9834,16 @@
           "Worker"
         ],
         "bribe": [
-          "Guado Guardian",
-          "Valaha (174,000 gil x60)"
+          {
+            "enemy": "Guado Guardian C (Home)",
+            "amount": 30,
+            "cost": 65000
+          },
+          {
+            "enemy": "Valaha",
+            "amount": 60,
+            "cost": 217500
+          }
         ],
         "find": [
           "Submerged Ruins: Hall",
@@ -9863,7 +9940,11 @@
           "Ornitholestes"
         ],
         "bribe": [
-          "Machea"
+          {
+            "enemy": "Machea",
+            "amount": 60,
+            "cost": 450
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Cactuar King (x99)"
@@ -9875,8 +9956,16 @@
           "Skoll"
         ],
         "bribe": [
-          "Bandersnatch",
-          "Skoll"
+          {
+            "enemy": "Bandersnatch",
+            "amount": 20,
+            "cost": 45000
+          },
+          {
+            "enemy": "Skoll",
+            "amount": 12,
+            "cost": 25000
+          }
         ]
       },
       "Echo Screen": {
@@ -9901,8 +9990,16 @@
           "Nidhogg"
         ],
         "bribe": [
-          "Nidhogg",
-          "Mushussu"
+          {
+            "enemy": "Mushussu",
+            "amount": 4,
+            "cost": 17000
+          },
+          {
+            "enemy": "Nidhogg",
+            "amount": 12,
+            "cost": 50000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Tanket (x99)"
@@ -9920,9 +10017,21 @@
           "Kottos"
         ],
         "bribe": [
-          "Achelous",
-          "Octopus",
-          "Phlegyas"
+          {
+            "enemy": "Achelous",
+            "amount": 16,
+            "cost": 127500
+          },
+          {
+            "enemy": "Octopus",
+            "amount": 20,
+            "cost": 112500
+          },
+          {
+            "enemy": "Phlegyas",
+            "amount": 6,
+            "cost": 42000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Sleep Sprout (x99)"
@@ -9933,7 +10042,11 @@
           "Adamantoise"
         ],
         "bribe": [
-          "Anacondaur"
+          {
+            "enemy": "Anacondaur",
+            "amount": 16,
+            "cost": 145
+          }
         ]
       },
       "Holy Water": {
@@ -9958,12 +10071,36 @@
           "Shred"
         ],
         "bribe": [
-          "Bunyip (8,000 gil x16)",
-          "Mafdet (14,200 gil x28)",
-          "Murussu (11,600 gil x24)",
-          "Raldo (4,800 gil x10)",
-          "Shred (39,000 gil x50)",
-          "Swamp Mafdet (17,000 gil x28)"
+          {
+            "enemy": "Bunyip",
+            "amount": 16,
+            "cost": 10000
+          },
+          {
+            "enemy": "Mafdet",
+            "amount": 28,
+            "cost": 17750
+          },
+          {
+            "enemy": "Murussu",
+            "amount": 24,
+            "cost": 14500
+          },
+          {
+            "enemy": "Raldo",
+            "amount": 10,
+            "cost": 6000
+          },
+          {
+            "enemy": "Shred",
+            "amount": 50,
+            "cost": 48750
+          },
+          {
+            "enemy": "Swamp Mafdet",
+            "amount": 28,
+            "cost": 21250
+          }
         ]
       },
       "Light Curtain": {
@@ -10020,8 +10157,26 @@
           "Sandragora"
         ],
         "bribe": [
-          "Buer (4,600 gil x1)",
-          "Evil Eye ( (6,200 gil x3 Macalania, 8,600 x4 Home) , Floating Eye (2,800 gil x1)"
+          {
+            "enemy": "Buer",
+            "amount": 2,
+            "cost": 5750
+          },
+          {
+            "enemy": "Evil Eye A (Macalania)",
+            "amount": 3,
+            "cost": 7750
+          },
+          {
+            "enemy": "Evil Eye B (Home)",
+            "amount": 4,
+            "cost": 10750
+          },
+          {
+            "enemy": "Floating Eye",
+            "amount": 1,
+            "cost": 3500
+          }
         ]
       },
       "Petrify Grenade": {
@@ -10040,14 +10195,46 @@
           "Zaurus"
         ],
         "bribe": [
-          "Basilisk",
-          "Cave Iguion",
-          "Dinonix",
-          "Iguion",
-          "Ipiria",
-          "Melusine",
-          "Raptor",
-          "Yowie"
+          {
+            "enemy": "Basilisk",
+            "amount": 24,
+            "cost": 50625
+          },
+          {
+            "enemy": "Cave Iguion",
+            "amount": 6,
+            "cost": 13750
+          },
+          {
+            "enemy": "Dinonix",
+            "amount": 2,
+            "cost": 3500
+          },
+          {
+            "enemy": "Iguion",
+            "amount": 5,
+            "cost": 9250
+          },
+          {
+            "enemy": "Ipiria",
+            "amount": 3,
+            "cost": 4500
+          },
+          {
+            "enemy": "Melusine",
+            "amount": 4,
+            "cost": 6625
+          },
+          {
+            "enemy": "Raptor",
+            "amount": 2,
+            "cost": 5000
+          },
+          {
+            "enemy": "Yowie",
+            "amount": 12,
+            "cost": 22500
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Jormungand (x99)"
@@ -10063,10 +10250,26 @@
           "Wasp"
         ],
         "bribe": [
-          "Bite Bug",
-          "Killer Bee",
-          "Nebiros",
-          "Wasp"
+          {
+            "enemy": "Bite Bug",
+            "amount": 2,
+            "cost": 5000
+          },
+          {
+            "enemy": "Killer Bee",
+            "amount": 1,
+            "cost": 2750
+          },
+          {
+            "enemy": "Nebiros",
+            "amount": 6,
+            "cost": 17500
+          },
+          {
+            "enemy": "Wasp",
+            "amount": 3,
+            "cost": 9000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Malboro Menace (x99)"
@@ -10086,11 +10289,31 @@
           "Malboro Menace"
         ],
         "bribe": [
-          "Lord Ochu",
-          "Ragora",
-          "Ochu",
-          "Sandragora",
-          "Grat"
+          {
+            "enemy": "Grat",
+            "amount": 40,
+            "cost": 100000
+          },
+          {
+            "enemy": "Lord Ochu",
+            "amount": 80,
+            "cost": 116225
+          },
+          {
+            "enemy": "Ochu",
+            "amount": 70,
+            "cost": 180000
+          },
+          {
+            "enemy": "Ragora",
+            "amount": 8,
+            "cost": 19500
+          },
+          {
+            "enemy": "Sandragora",
+            "amount": 99,
+            "cost": 318750
+          }
         ],
         "find": [
           "S.S. Liki - Cabin",
@@ -10130,7 +10353,11 @@
           "Dark Element"
         ],
         "bribe": [
-          "Larva (29,960 gil x10)"
+          {
+            "enemy": "Larva",
+            "amount": 10,
+            "cost": 3745
+          }
         ]
       },
       "Silence Grenade": {
@@ -10142,7 +10369,11 @@
           "Thorn"
         ],
         "bribe": [
-          "Bat Eye"
+          {
+            "enemy": "Bat Eye",
+            "amount": 12,
+            "cost": 95
+          }
         ]
       },
       "Silver Hourglass": {
@@ -10153,9 +10384,21 @@
           "Mushussu"
         ],
         "bribe": [
-          "Kusariqqu",
-          "Lamashtu",
-          "Vouivre"
+          {
+            "enemy": "Kusariqqu",
+            "amount": 20,
+            "cost": 11125
+          },
+          {
+            "enemy": "Lamashtu",
+            "amount": 10,
+            "cost": 6875
+          },
+          {
+            "enemy": "Vouivre",
+            "amount": 10,
+            "cost": 6375
+          }
         ],
         "prize": [
           "Magic Urn (Outer Eyes) x4"
@@ -10170,11 +10413,31 @@
           "Snow Wolf"
         ],
         "bribe": [
-          "Dingo",
-          "Garm",
-          "Mi'ihen Fang",
-          "Sand Wolf",
-          "Snow Wolf"
+          {
+            "enemy": "Dingo",
+            "amount": 4,
+            "cost": 3125
+          },
+          {
+            "enemy": "Garm",
+            "amount": 7,
+            "cost": 6000
+          },
+          {
+            "enemy": "Mi'ihen Fang",
+            "amount": 5,
+            "cost": 4000
+          },
+          {
+            "enemy": "Sand Wolf",
+            "amount": 12,
+            "cost": 11250
+          },
+          {
+            "enemy": "Snow Wolf",
+            "amount": 11,
+            "cost": 10000
+          }
         ]
       },
       "Smoke Bomb": {
@@ -10187,9 +10450,21 @@
           "Zu"
         ],
         "bribe": [
-          "Condor",
-          "Garuda",
-          "Simurgh"
+          {
+            "enemy": "Condor",
+            "amount": 3,
+            "cost": 2375
+          },
+          {
+            "enemy": "Garuda C*",
+            "amount": 99,
+            "cost": 100000
+          },
+          {
+            "enemy": "Simurgh",
+            "amount": 5,
+            "cost": 5000
+          }
         ]
       },
       "Soft": {
@@ -10229,8 +10504,16 @@
           "Stratoavis"
         ],
         "bribe": [
-          "Bashura",
-          "Ogre"
+          {
+            "enemy": "Bashura",
+            "amount": 80,
+            "cost": 425000
+          },
+          {
+            "enemy": "Ogre",
+            "amount": 50,
+            "cost": 235000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Ornitholestes (x99)"
@@ -10251,6 +10534,15 @@
         "steal": [
           "Master Tonberry",
           "Seymour Natus"
+        ]
+      },
+      "Hi-Potion": {
+        "bribe": [
+          {
+            "enemy": "Dual Horn A (Mi'ihen)",
+            "amount": 60,
+            "cost": 46875
+          }
         ]
       },
       "Farplane Shadow": {
@@ -10295,7 +10587,11 @@
           "Malboro Menace"
         ],
         "bribe": [
-          "Gemini (Club)"
+          {
+            "enemy": "Gemini (Blue)",
+            "amount": 10,
+            "cost": 900
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Hornet (x60)"
@@ -10310,7 +10606,11 @@
           "Catoblepas"
         ],
         "bribe": [
-          "Behemoth King"
+          {
+            "enemy": "Behemoth King",
+            "amount": 14,
+            "cost": 1687500
+          }
         ],
         "prize": [
           "Remiem Temple Chocobo Race (5 chests) (x60)",
@@ -10341,12 +10641,20 @@
           "Stratoavis"
         ],
         "bribe": [
-          "Tonberry (270,000 gil x2)"
+          {
+            "enemy": "Tonberry",
+            "amount": 2,
+            "cost": 3375
+          }
         ]
       },
       "Attribute Sphere": {
         "bribe": [
-          "Maelspike (200,000 gil x1)"
+          {
+            "enemy": "Maelspike",
+            "amount": 1,
+            "cost": 250
+          }
         ],
         "find": [
           "Inside Sin"
@@ -10369,7 +10677,11 @@
           "Evrae Altana"
         ],
         "bribe": [
-          "Black Element (152,000 gil x1)"
+          {
+            "enemy": "Black Element",
+            "amount": 2,
+            "cost": 190
+          }
         ],
         "find": [
           "Via Purifico"
@@ -10398,8 +10710,16 @@
           "Bomb King"
         ],
         "bribe": [
-          "Mech Leader (74,000 gil x2)",
-          "Mech Scouter (55,000 gil x1)"
+          {
+            "enemy": "Mech Leader",
+            "amount": 2,
+            "cost": 92500
+          },
+          {
+            "enemy": "Mech Scouter",
+            "amount": 1,
+            "cost": 68750
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Catastrophe (x99)"
@@ -10426,9 +10746,21 @@
           "Don Tonberry"
         ],
         "bribe": [
-          "Ahriman",
-          "Epaaj",
-          "Wraith"
+          {
+            "enemy": "Ahriman",
+            "amount": 6,
+            "cost": 70000
+          },
+          {
+            "enemy": "Epaaj",
+            "amount": 25,
+            "cost": 217500
+          },
+          {
+            "enemy": "Wraith",
+            "amount": 60,
+            "cost": 555550
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Chimerageist (x60)"
@@ -10446,7 +10778,11 @@
           "Neslug"
         ],
         "bribe": [
-          "Coeurl (150,000 gil x3)"
+          {
+            "enemy": "Coeurl",
+            "amount": 2,
+            "cost": 150
+          }
         ],
         "find": [
           "Home",
@@ -10470,7 +10806,11 @@
           "Ornitholestes"
         ],
         "bribe": [
-          "Floating Death (134,000 gil x10)"
+          {
+            "enemy": "Floating Death",
+            "amount": 10,
+            "cost": 1675
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Th'uban (x99)"
@@ -10504,7 +10844,11 @@
           "Earth Eater"
         ],
         "bribe": [
-          "Imp (17,600 gil x4)"
+          {
+            "enemy": "Imp",
+            "amount": 4,
+            "cost": 22
+          }
         ],
         "find": [
           "Mi'ihen Highroad",
@@ -10529,7 +10873,11 @@
           "Catastrophe"
         ],
         "bribe": [
-          "Behemoth (460,000 gil x30)"
+          {
+            "enemy": "Behemoth",
+            "amount": 30,
+            "cost": 575
+          }
         ],
         "find": [
           "Calm Lands",
@@ -10556,7 +10904,11 @@
           "Yenke Ronso"
         ],
         "bribe": [
-          "Demonolith (900,000 gil x40)"
+          {
+            "enemy": "Demonolith",
+            "amount": 40,
+            "cost": 1125000
+          }
         ],
         "find": [
           "Inside Sin",
@@ -10575,7 +10927,11 @@
           "Nemesis"
         ],
         "bribe": [
-          "Chimera Brain (196,000 gil x2)"
+          {
+            "enemy": "Chimera Brain",
+            "amount": 2,
+            "cost": 245
+          }
         ],
         "find": [
           "Mt. Gagazet",
@@ -10630,8 +10986,16 @@
           "Neslug"
         ],
         "bribe": [
-          "Master Tonberry (960,000 gil x2)",
-          "Ultima Weapon (NTSC Version 1,750,000 gil x99 / PAL/Int./HD (2,499,975 gil) x99)"
+          {
+            "enemy": "Master Tonberry",
+            "amount": 3,
+            "cost": 1200000
+          },
+          {
+            "enemy": "Ultima Weapon",
+            "amount": 99,
+            "cost": 1750000
+          }
         ]
       },
       "Reward: Remiem Temple Chocobo Race (4 chests) (x30)": {},
@@ -10649,8 +11013,16 @@
           "Greater Sphere"
         ],
         "bribe": [
-          "Dark Element (36,000 gil x1)",
-          "Mandragora (620,000 gil x24)"
+          {
+            "enemy": "Dark Element",
+            "amount": 3,
+            "cost": 45000
+          },
+          {
+            "enemy": "Mandragora",
+            "amount": 24,
+            "cost": 775000
+          }
         ],
         "find": [
           "Mt. Gagazet"
@@ -10675,8 +11047,16 @@
           "Coeurlregina"
         ],
         "bribe": [
-          "Grenade",
-          "Puroboros"
+          {
+            "enemy": "Grenade",
+            "amount": 12,
+            "cost": 187500
+          },
+          {
+            "enemy": "Puroboros",
+            "amount": 36,
+            "cost": 500000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Espada (x60)"
@@ -10684,7 +11064,11 @@
       },
       "Skill Sphere": {
         "bribe": [
-          "Zu (240,000 gil x2)"
+          {
+            "enemy": "Zu",
+            "amount": 2,
+            "cost": 450
+          }
         ],
         "find": [
           "Home",
@@ -10697,7 +11081,11 @@
           "Seymour"
         ],
         "bribe": [
-          "Adamantoise (1,360,000 gil x6)"
+          {
+            "enemy": "Adamantoise",
+            "amount": 6,
+            "cost": 1360000
+          }
         ],
         "find": [
           "Home",
@@ -10725,7 +11113,11 @@
           "Th'uban"
         ],
         "bribe": [
-          "Barbatos (1,900,000 gil x20)"
+          {
+            "enemy": "Barbatos",
+            "amount": 20,
+            "cost": 2375000
+          }
         ],
         "find": [
           "Cavern of the Stolen Fayth",
@@ -10742,7 +11134,11 @@
           "Th'uban"
         ],
         "bribe": [
-          "Chimera (Siege of Home 180,000 gil x15)"
+          {
+            "enemy": "Chimera B*",
+            "amount": 15,
+            "cost": 225
+          }
         ],
         "prize": [
           "Rin (obtain all Al Bhed Primers)",
@@ -10757,7 +11153,11 @@
           "Nemesis"
         ],
         "bribe": [
-          "Master Coeurl (260,000 gil x1)"
+          {
+            "enemy": "Master Coeurl",
+            "amount": 1,
+            "cost": 325
+          }
         ],
         "find": [
           "Omega Ruins"
@@ -10765,7 +11165,11 @@
       },
       "Wht Magic Sphere": {
         "bribe": [
-          "Dark Flan (128,000 gil x1) HD (320,000 gil x2)"
+          {
+            "enemy": "Dark Flan",
+            "amount": 2,
+            "cost": 320
+          }
         ],
         "find": [
           "Inside Sin",
@@ -10778,8 +11182,16 @@
           "Shinryu"
         ],
         "bribe": [
-          "Great Malboro (1,280,000 gil x5)",
-          "Malboro (540,000 gil x4)"
+          {
+            "enemy": "Great Malboro",
+            "amount": 7,
+            "cost": 1600000
+          },
+          {
+            "enemy": "Malboro",
+            "amount": 4,
+            "cost": 675000
+          }
         ]
       },
       "Reward: Remiem Temple Chocobo Race (3 chests) (x30)": {},
@@ -10788,7 +11200,11 @@
           "Ultima Buster"
         ],
         "bribe": [
-          "Sand Worm (900,000 gil x15)"
+          {
+            "enemy": "Sand Worm",
+            "amount": 15,
+            "cost": 1125000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Neslug (x99)"
@@ -10806,8 +11222,16 @@
           "YAT-97"
         ],
         "bribe": [
-          "Alcyone",
-          "Ghost"
+          {
+            "enemy": "Alcyone",
+            "amount": 2,
+            "cost": 10750
+          },
+          {
+            "enemy": "Ghost",
+            "amount": 38,
+            "cost": 249975
+          }
         ],
         "find": [
           "Djose Temple"
@@ -10841,8 +11265,16 @@
           "Crawler"
         ],
         "bribe": [
-          "YKT-63 (84,000 gil x8)",
-          "YKT-11 (124,000 gil x12)"
+          {
+            "enemy": "YKT-11",
+            "amount": 12,
+            "cost": 155000
+          },
+          {
+            "enemy": "YKT-63",
+            "amount": 8,
+            "cost": 105000
+          }
         ],
         "find": [
           "Guadosalam",
@@ -10877,7 +11309,11 @@
           "Jormungand"
         ],
         "bribe": [
-          "Halma"
+          {
+            "enemy": "Halma",
+            "amount": 20,
+            "cost": 325
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Greater Sphere (x60)"
@@ -10888,8 +11324,16 @@
           "Penance"
         ],
         "bribe": [
-          "Xiphos",
-          "Varuna (1,120,000 gil x20)"
+          {
+            "enemy": "Varuna",
+            "amount": 20,
+            "cost": 1400000
+          },
+          {
+            "enemy": "Xiphos",
+            "amount": 1,
+            "cost": 67500
+          }
         ],
         "find": [
           "Bikanel: West (x3)",
@@ -10920,8 +11364,16 @@
           "Chimera"
         ],
         "bribe": [
-          "White Element",
-          "Snow Flan"
+          {
+            "enemy": "Snow Flan",
+            "amount": 10,
+            "cost": 15000
+          },
+          {
+            "enemy": "White Element",
+            "amount": 7,
+            "cost": 9750
+          }
         ]
       },
       "Bomb Core": {
@@ -10929,8 +11381,16 @@
           "Random Chest (Moonflow North Bank - tutorial only)"
         ],
         "bribe": [
-          "Bomb",
-          "Red Element"
+          {
+            "enemy": "Bomb A (Mi'ihen)",
+            "amount": 16,
+            "cost": 21250
+          },
+          {
+            "enemy": "Red Element",
+            "amount": 8,
+            "cost": 11250
+          }
         ]
       },
       "Bomb Fragment": {
@@ -10951,7 +11411,11 @@
           "Water Flan"
         ],
         "bribe": [
-          "Splasher"
+          {
+            "enemy": "Splasher",
+            "amount": 4,
+            "cost": 5
+          }
         ]
       },
       "Electro Marble": {
@@ -10971,8 +11435,16 @@
           "Puroboros"
         ],
         "bribe": [
-          "Bomb (Home)",
-          "Flame Flan"
+          {
+            "enemy": "Bomb B (Home)",
+            "amount": 14,
+            "cost": 55000
+          },
+          {
+            "enemy": "Flame Flan",
+            "amount": 10,
+            "cost": 37500
+          }
         ]
       },
       "Fish Scale": {
@@ -10989,7 +11461,11 @@
           "Chimera Brain"
         ],
         "bribe": [
-          "Ice Flan"
+          {
+            "enemy": "Ice Flan",
+            "amount": 9,
+            "cost": 3375
+          }
         ]
       },
       "Lightning Gem": {
@@ -11008,11 +11484,31 @@
           "Yellow Element"
         ],
         "bribe": [
-          "Aerouge",
-          "Gandarewa",
-          "Gold Element",
-          "Thunder Flan",
-          "Yellow Element"
+          {
+            "enemy": "Aerouge",
+            "amount": 4,
+            "cost": 5000
+          },
+          {
+            "enemy": "Gandarewa",
+            "amount": 3,
+            "cost": 3700
+          },
+          {
+            "enemy": "Gold Element",
+            "amount": 20,
+            "cost": 30000
+          },
+          {
+            "enemy": "Thunder Flan",
+            "amount": 8,
+            "cost": 11250
+          },
+          {
+            "enemy": "Yellow Element",
+            "amount": 6,
+            "cost": 7500
+          }
         ]
       },
       "Water Gem": {
@@ -11025,13 +11521,46 @@
           "Phlegyas"
         ],
         "bribe": [
-          "Aqua Flan",
-          "Blue Element",
-          "Maze Larva",
-          "Piranha",
-          "Remora",
-          "Sahagin",
-          "Water Flan"
+          {
+            "enemy": "Aqua Flan",
+            "amount": 15,
+            "cost": 50625
+          },
+          {
+            "enemy": "Blue Element",
+            "amount": 9,
+            "cost": 37500
+          },
+          {
+            "enemy": "Maze Larva",
+            "amount": 14,
+            "cost": 55550
+          },
+          {
+            "enemy": "Piranha",
+            "amount": 1,
+            "cost": 1250
+          },
+          {
+            "enemy": "Remora",
+            "amount": 20,
+            "cost": 75000
+          },
+          {
+            "enemy": "Sahagin B (Via Purifico Land)",
+            "amount": 1,
+            "cost": 34500
+          },
+          {
+            "enemy": "Sahagin C (Via Purifico Underwater)",
+            "amount": 3,
+            "cost": 9500
+          },
+          {
+            "enemy": "Water Flan",
+            "amount": 2,
+            "cost": 7875
+          }
         ]
       },
       "Ether": {
@@ -11050,9 +11579,21 @@
           "Sin (head)"
         ],
         "bribe": [
-          "Guado Guardian",
-          "YAT-99 (54,000 gil x10)",
-          "YAT-97 (74,000 gil x16)"
+          {
+            "enemy": "Guado Guard A",
+            "amount": 10,
+            "cost": 50000
+          },
+          {
+            "enemy": "YAT-97",
+            "amount": 16,
+            "cost": 92500
+          },
+          {
+            "enemy": "YAT-99",
+            "amount": 10,
+            "cost": 67500
+          }
         ],
         "find": [
           "Submerged Ruins - Ruins: Stairs",
@@ -11085,9 +11626,21 @@
           "Braska's Final Aeon"
         ],
         "bribe": [
-          "Funguar",
-          "Thorn",
-          "Exoray (148,000 gil x30)"
+          {
+            "enemy": "Funguar",
+            "amount": 2,
+            "cost": 13500
+          },
+          {
+            "enemy": "Thorn",
+            "amount": 16,
+            "cost": 102000
+          },
+          {
+            "enemy": "Exoray",
+            "amount": 30,
+            "cost": 185000
+          }
         ],
         "prize": [
           "Calm Lands - Catcher Chocobo: (tie/beat time)"
@@ -11135,7 +11688,11 @@
           "Vorban"
         ],
         "bribe": [
-          "Land Worm"
+          {
+            "enemy": "Land Worm",
+            "amount": 2,
+            "cost": 2000000
+          }
         ],
         "prize": [
           "Monster Arena - Unlock Ultima Buster (x99)",
@@ -11164,7 +11721,11 @@
           "Dark Ixion"
         ],
         "bribe": [
-          "Defender"
+          {
+            "enemy": "Defender",
+            "amount": 20,
+            "cost": 300
+          }
         ],
         "prize": [
           "Magic Urn (Middle Eye)"
@@ -11182,7 +11743,11 @@
           "Catastrophe"
         ],
         "bribe": [
-          "Defender Z (846,000 gil x5)"
+          {
+            "enemy": "Defender Z",
+            "amount": 5,
+            "cost": 1057500
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Vorban (x60)"
@@ -11198,8 +11763,16 @@
           "Abyss Worm"
         ],
         "bribe": [
-          "Gemini (Sword)",
-          "Iron Giant"
+          {
+            "enemy": "Iron Giant",
+            "amount": 1,
+            "cost": 90000
+          },
+          {
+            "enemy": "Gemini (Red)",
+            "amount": 10,
+            "cost": 900000
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Stratoavis (x99)"
@@ -11214,7 +11787,11 @@
           "Abaddon"
         ],
         "bribe": [
-          "Chimera"
+          {
+            "enemy": "Chimera A (Macalania)",
+            "amount": 10,
+            "cost": 13125
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Ironclad (x60)"
@@ -11229,7 +11806,11 @@
           "Nega Elemental"
         ],
         "bribe": [
-          "Spirit"
+          {
+            "enemy": "Spirit",
+            "amount": 10,
+            "cost": 250
+          }
         ],
         "gift": [
           "Monster Arena - Unlock Jumbo Flan (x60)"
@@ -11249,7 +11830,7 @@
           "Blitzball - League Prize (1st place)"
         ]
       }
-    };
+    }
 
     // -----------------------------------------------------
     // 2. THEME LOGIC
@@ -11448,16 +12029,74 @@
       list.innerHTML = '';
 
       if (info) {
-        for (const [method, locs] of Object.entries(info)) {
-          const row = document.createElement('div');
-          row.style.marginBottom = "0.8rem";
-          const tagClass = `tag tag-${method}`;
-          let locString = Array.isArray(locs) ? locs.join(", ") : locs;
-          row.innerHTML = `<span class="${tagClass}">${method.toUpperCase()}</span><span style="color:var(--text-muted); font-size:0.9rem;">${locString}</span>`;
-          list.appendChild(row);
-        }
-      } else { list.innerHTML = `<div style="color:var(--text-muted); font-style:italic;">No location data available yet.</div>`; }
+        for (const [method, data] of Object.entries(info)) {
+          const wrapper = document.createElement('div');
+          wrapper.style.marginBottom = "1.2rem";
 
+          // 1. Create the Label (STEAL, DROP, BRIBE)
+          const label = document.createElement('span');
+          label.className = `tag tag-${method}`;
+          label.style.fontWeight = "bold";
+          label.style.marginBottom = "0.5rem";
+          label.textContent = method.toUpperCase();
+          wrapper.appendChild(label);
+
+          // 2. CHECK: Is this data a Table (Array of Objects)?
+          if (Array.isArray(data) && typeof data[0] === 'object') {
+            const table = document.createElement('table');
+            table.style.width = "100%";
+            table.style.borderCollapse = "collapse";
+            table.style.marginTop = "0.5rem";
+            table.style.fontSize = "0.9rem";
+
+            /// Header with Tooltip
+            // We use \n for line breaks inside the data-tip attribute
+            const bribeTip = "Bribe Success Rates:\n x25 HP = 100%\n x20 HP = ~75%\n x15 HP = ~50%\n x10 HP = ~25%";
+
+            table.innerHTML = `
+    <tr style="border-bottom: 1px solid var(--border); color:var(--text-muted); text-align:left;">
+        <th style="padding:4px;">Enemy</th>
+        <th style="padding:4px; text-align:center;">Amount</th>
+        <th style="padding:4px; text-align:right;">
+            <span class="tooltip-container" data-tip="${bribeTip}">Gil x25 (100%) ⓘ</span>
+        </th>
+    </tr>
+`;
+
+            // Rows
+            data.forEach(row => {
+              const tr = document.createElement('tr');
+              tr.style.borderBottom = "1px solid rgba(255,255,255,0.05)";
+              tr.innerHTML = `
+                                <td style="padding:8px 4px; color:var(--text);">${row.enemy}</td>
+                                <td style="padding:8px 4px; text-align:center;">x${row.amount}</td>
+                                <td style="padding:8px 4px; text-align:right; color:var(--text);">${row.cost.toLocaleString()}</td>
+                            `;
+              table.appendChild(tr);
+            });
+            wrapper.appendChild(table);
+          }
+          // 3. FALLBACK: Standard Text List (Steal/Drop)
+          else {
+            const textDiv = document.createElement('div');
+            textDiv.style.color = "var(--text-muted)";
+            textDiv.style.fontSize = "0.95rem";
+            textDiv.style.marginTop = "0.3rem";
+            textDiv.style.lineHeight = "1.4";
+
+            // Join array if needed
+            let content = Array.isArray(data) ? data.join(", ") : data;
+            textDiv.textContent = content;
+            wrapper.appendChild(textDiv);
+          }
+
+          list.appendChild(wrapper);
+        }
+      } else {
+        list.innerHTML = `<div style="color:var(--text-muted); font-style:italic;">No location data available yet.</div>`;
+      }
+
+      // Update "Used In" tags
       const tags = document.getElementById('item-mix-tags');
       tags.innerHTML = '';
       const usedIn = CLEAN_DATA.filter(m => m.combinations.some(c => c.requiresOneOf.includes(item) || c.items.includes(item)));
